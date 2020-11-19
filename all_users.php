@@ -45,7 +45,9 @@ try {
 <h1>All Users</h1>
 
 <?php
-$stmt = $pdo->query('select users.id as user_id, username, email, s.name as status from users join status s on users.status_id = s.id');
+$status = 2;
+$nom = "e";
+$stmt = $pdo->query("select users.id as user_id, username, email, s.name as status from users join status s on users.status_id = s.id where users.status_id='".$status."' and username like '".$nom."%'");
 ?>
 <table>
     <tr>
